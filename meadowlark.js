@@ -1,5 +1,5 @@
-
 var express = require('express');
+var fortunes = require('./lib/fortune.js');
 
 var app = express();
 
@@ -14,7 +14,7 @@ app.get('/', function(req, res){
 	res.render('home');
 });
 app.get('/about', function(req, res){
-	res.render('about');
+	res.render('about', {fortune: fortunes.getFortune()});
 });
 
 // custom 404 page
